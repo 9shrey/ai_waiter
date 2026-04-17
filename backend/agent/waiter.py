@@ -9,9 +9,15 @@ GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini
 MAX_TOOL_ROUNDS = 5  # Prevent infinite tool-calling loops
 
 
+def _verify_ssl() -> bool:
+    """TLS verification for outbound Gemini calls. Defaults to True.
+    Set GEMINI_VERIFY_SSL=false to disable (e.g. corporate MITM proxy)."""
+    return os.getenv("GEMINI_VERIFY_SSL", "true").strip().lower() not in {"false", "0", "no"}
+
+
 async def _call_gemini(api_key: str, payload: dict) -> dict:
     """Make a single call to the Gemini REST API."""
-    async with httpx.AsyncClient(verify=False, timeout=30.0) as client:
+    async with httpx.AsyncClient(verify=_verify_ssl(), timeout=30.0) as client:
         resp = await client.post(
             f"{GEMINI_API_URL}?key={api_key}",
             json=payload,
@@ -28,12 +34,13 @@ async def chat(
     user_context: dict | None = None,
 ) -> dict:
     """Send a message to the Gemini waiter agent with function calling.
-    
+
     Returns a dict with:
       - reply: str (the agent's text response)
       - display_cards: list (menu item cards to show in the UI)
       - order_updates: list (changes to the order)
       - current_order: list (the final order state)
+      - context_updates: dict (new facts the agent learned about the user)
     """
     api_key = os.getenv("GEMINI_API_KEY", "")
     if not api_key:
@@ -42,6 +49,7 @@ async def chat(
             "display_cards": [],
             "order_updates": [],
             "current_order": current_order or [],
+            "context_updates": {},
         }
 
     if current_order is None:
@@ -68,7 +76,8 @@ async def chat(
         },
     }
 
-    all_display_cards = []
+    all_display_cards: list[dict] = []
+    context_updates: dict = {}
 
     # Tool-calling loop: Gemini may call tools, we execute and feed results back
     for _round in range(MAX_TOOL_ROUNDS):
@@ -80,6 +89,7 @@ async def chat(
                 "display_cards": [],
                 "order_updates": [],
                 "current_order": current_order,
+                "context_updates": {},
             }
 
         candidate = data.get("candidates", [{}])[0]
@@ -107,6 +117,17 @@ async def chat(
                 result, cards = execute_tool(tool_name, args, current_order)
                 all_display_cards.extend(cards)
 
+                # Capture context updates from the dedicated tool call
+                if tool_name == "update_user_context" and isinstance(result, dict):
+                    facts = result.get("facts") or {}
+                    if isinstance(facts, dict):
+                        for k, v in facts.items():
+                            if isinstance(v, list):
+                                context_updates.setdefault(k, [])
+                                for item in v:
+                                    if item not in context_updates[k]:
+                                        context_updates[k].append(item)
+
                 function_response_parts.append({
                     "functionResponse": {
                         "name": tool_name,
@@ -132,4 +153,5 @@ async def chat(
         "display_cards": all_display_cards,
         "order_updates": order_updates,
         "current_order": current_order,
+        "context_updates": context_updates,
     }

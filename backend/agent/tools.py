@@ -292,6 +292,45 @@ TOOL_DECLARATIONS = [
             "required": [],
         },
     },
+    {
+        "name": "update_user_context",
+        "description": (
+            "Save facts the customer just revealed about themselves so they're remembered on future visits. "
+            "Call this whenever the user mentions a dietary restriction, allergy, preference, or something they "
+            "love or dislike. Only include fields you actually learned this turn; don't make up facts."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "dietary": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Dietary restrictions, e.g. ['vegetarian', 'vegan', 'halal']",
+                },
+                "allergies": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Allergens to avoid, e.g. ['nuts', 'dairy', 'shellfish']",
+                },
+                "preferences": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Free-form preferences, e.g. ['loves spicy food', 'budget under $20']",
+                },
+                "liked_items": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Menu item IDs the customer explicitly liked",
+                },
+                "disliked_items": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Menu item IDs the customer explicitly disliked",
+                },
+            },
+            "required": [],
+        },
+    },
 ]
 
 
@@ -337,5 +376,11 @@ def execute_tool(tool_name: str, args: dict, current_order: list[dict]) -> tuple
     elif tool_name == "check_combo_eligibility":
         results = check_combo_eligibility(current_order)
         return {"combos": results}, display_cards
+
+    elif tool_name == "update_user_context":
+        # Return the facts so the caller (waiter.py) can persist them.
+        # Drop empty lists to keep the payload clean.
+        cleaned = {k: v for k, v in args.items() if isinstance(v, list) and v}
+        return {"success": True, "facts": cleaned, "message": "Got it — I'll remember that."}, display_cards
 
     return {"error": f"Unknown tool: {tool_name}"}, display_cards

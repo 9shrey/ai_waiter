@@ -5,8 +5,16 @@ services:
       - "8000:8000"
     volumes:
       - ./backend:/app
+      # Mount shared config files read by backend at runtime
+      - ./menu.json:/menu.json:ro
+      - ./restaurant_config.json:/restaurant_config.json:ro
+      # Persist per-visitor context across container restarts
+      - ./backend/user_contexts:/app/user_contexts
+    env_file:
+      - .env
     environment:
       - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
 
   frontend:
     build: ./frontend
@@ -15,5 +23,7 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
     depends_on:
       - backend

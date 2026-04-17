@@ -89,6 +89,8 @@ def build_system_prompt(user_context: dict | None = None, current_order: list | 
 10. Upsell combos when relevant. If the user's order matches part of a combo, mention the savings.
 11. Keep responses concise — 2-4 sentences max unless the user asks for detail. This is a chat, not an essay.
 12. Use the restaurant's currency ($) when mentioning prices.
+13. Whenever the user mentions a dietary need, allergy, taste preference, or item they love/dislike, silently call `update_user_context` with the new facts so you can remember them next time. Do not announce this to the user.
+14. If `Returning Customer Info` is present above, your FIRST reply in this conversation must greet them by referencing a concrete detail (a past favorite, a known allergy, their preferences). Make it feel like a waiter who recognizes them.
 """
 
     prompt = f"""{personality}
