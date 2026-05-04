@@ -1,0 +1,293 @@
+{
+  "restaurant": "Taste of India",
+  "categories": [
+    {
+      "name": "Starters",
+      "items": [
+        {
+          "id": "starter-001",
+          "name": "Paneer Tikka",
+          "description": "Marinated cottage cheese grilled in tandoor with bell peppers and onions",
+          "price": 12.99,
+          "image": "/images/paneer-tikka.jpg",
+          "tags": ["vegetarian", "gluten-free", "popular"],
+          "allergens": ["dairy"],
+          "spice_level": 2,
+          "pairs_with": ["naan-001", "lassi-001"],
+          "available": true
+        },
+        {
+          "id": "starter-002",
+          "name": "Chicken Seekh Kebab",
+          "description": "Minced chicken skewers with aromatic spices, cooked over charcoal",
+          "price": 13.99,
+          "image": "/images/seekh-kebab.jpg",
+          "tags": ["non-veg", "popular"],
+          "allergens": [],
+          "spice_level": 3,
+          "pairs_with": ["naan-002", "drink-002"],
+          "available": true
+        },
+        {
+          "id": "starter-003",
+          "name": "Samosa (2 pcs)",
+          "description": "Crispy pastry stuffed with spiced potatoes and peas, served with tamarind chutney",
+          "price": 7.99,
+          "image": "/images/samosa.jpg",
+          "tags": ["vegetarian", "popular", "budget-friendly"],
+          "allergens": ["gluten"],
+          "spice_level": 2,
+          "pairs_with": ["drink-001"],
+          "available": true
+        },
+        {
+          "id": "starter-004",
+          "name": "Fish Amritsari",
+          "description": "Battered and deep-fried fish fillets with carom seeds and chaat masala",
+          "price": 14.99,
+          "image": "/images/fish-amritsari.jpg",
+          "tags": ["non-veg", "seafood"],
+          "allergens": ["fish", "gluten"],
+          "spice_level": 2,
+          "pairs_with": ["drink-002"],
+          "available": true
+        }
+      ]
+    },
+    {
+      "name": "Curries",
+      "items": [
+        {
+          "id": "curry-001",
+          "name": "Butter Chicken",
+          "description": "Tender chicken in a rich, creamy tomato-butter sauce — our #1 best seller",
+          "price": 16.99,
+          "image": "/images/butter-chicken.jpg",
+          "tags": ["non-veg", "popular", "best-seller", "mild"],
+          "allergens": ["dairy"],
+          "spice_level": 1,
+          "pairs_with": ["naan-001", "rice-001", "lassi-001"],
+          "available": true
+        },
+        {
+          "id": "curry-002",
+          "name": "Palak Paneer",
+          "description": "Cottage cheese cubes in a velvety spinach gravy with garlic and cumin",
+          "price": 14.99,
+          "image": "/images/palak-paneer.jpg",
+          "tags": ["vegetarian", "healthy", "gluten-free"],
+          "allergens": ["dairy"],
+          "spice_level": 1,
+          "pairs_with": ["naan-001", "rice-001"],
+          "available": true
+        },
+        {
+          "id": "curry-003",
+          "name": "Lamb Rogan Josh",
+          "description": "Slow-cooked lamb in a Kashmiri red chili and yogurt sauce",
+          "price": 18.99,
+          "image": "/images/rogan-josh.jpg",
+          "tags": ["non-veg", "premium"],
+          "allergens": ["dairy"],
+          "spice_level": 3,
+          "pairs_with": ["naan-002", "rice-001"],
+          "available": true
+        },
+        {
+          "id": "curry-004",
+          "name": "Chole Masala",
+          "description": "Chickpeas simmered in a tangy onion-tomato masala with warm spices",
+          "price": 13.99,
+          "image": "/images/chole-masala.jpg",
+          "tags": ["vegetarian", "vegan", "budget-friendly"],
+          "allergens": [],
+          "spice_level": 2,
+          "pairs_with": ["naan-002", "rice-001"],
+          "available": true
+        },
+        {
+          "id": "curry-005",
+          "name": "Chicken Tikka Masala",
+          "description": "Grilled chicken chunks in a creamy spiced tomato gravy",
+          "price": 16.99,
+          "image": "/images/tikka-masala.jpg",
+          "tags": ["non-veg", "popular"],
+          "allergens": ["dairy"],
+          "spice_level": 2,
+          "pairs_with": ["naan-001", "rice-001", "drink-002"],
+          "available": true
+        }
+      ]
+    },
+    {
+      "name": "Breads & Rice",
+      "items": [
+        {
+          "id": "naan-001",
+          "name": "Garlic Naan",
+          "description": "Soft tandoor-baked bread brushed with garlic butter",
+          "price": 3.99,
+          "image": "/images/garlic-naan.jpg",
+          "tags": ["vegetarian", "popular"],
+          "allergens": ["gluten", "dairy"],
+          "spice_level": 0,
+          "pairs_with": ["curry-001", "curry-002"],
+          "available": true
+        },
+        {
+          "id": "naan-002",
+          "name": "Butter Naan",
+          "description": "Classic tandoor naan with a light butter glaze",
+          "price": 3.49,
+          "image": "/images/butter-naan.jpg",
+          "tags": ["vegetarian"],
+          "allergens": ["gluten", "dairy"],
+          "spice_level": 0,
+          "pairs_with": ["curry-003", "curry-004"],
+          "available": true
+        },
+        {
+          "id": "rice-001",
+          "name": "Jeera Rice",
+          "description": "Fragrant basmati rice tempered with cumin seeds and ghee",
+          "price": 4.99,
+          "image": "/images/jeera-rice.jpg",
+          "tags": ["vegetarian", "gluten-free"],
+          "allergens": ["dairy"],
+          "spice_level": 0,
+          "pairs_with": ["curry-001", "curry-003"],
+          "available": true
+        },
+        {
+          "id": "rice-002",
+          "name": "Chicken Biryani",
+          "description": "Aromatic basmati rice layered with spiced chicken, saffron, and fried onions",
+          "price": 17.99,
+          "image": "/images/biryani.jpg",
+          "tags": ["non-veg", "popular", "premium"],
+          "allergens": ["dairy"],
+          "spice_level": 3,
+          "pairs_with": ["drink-002", "dessert-001"],
+          "available": true
+        }
+      ]
+    },
+    {
+      "name": "Drinks",
+      "items": [
+        {
+          "id": "drink-001",
+          "name": "Mango Lassi",
+          "description": "Creamy yogurt smoothie blended with sweet Alphonso mangoes",
+          "price": 5.99,
+          "image": "/images/mango-lassi.jpg",
+          "tags": ["vegetarian", "popular", "sweet"],
+          "allergens": ["dairy"],
+          "spice_level": 0,
+          "pairs_with": ["starter-001", "curry-001"],
+          "available": true
+        },
+        {
+          "id": "drink-002",
+          "name": "Masala Chai",
+          "description": "Traditional spiced tea with cardamom, ginger, and cinnamon",
+          "price": 3.99,
+          "image": "/images/masala-chai.jpg",
+          "tags": ["vegetarian", "hot"],
+          "allergens": ["dairy"],
+          "spice_level": 0,
+          "pairs_with": ["starter-003", "dessert-002"],
+          "available": true
+        },
+        {
+          "id": "drink-003",
+          "name": "Fresh Lime Soda",
+          "description": "Sparkling soda with fresh lime juice — choose sweet or salted",
+          "price": 3.49,
+          "image": "/images/lime-soda.jpg",
+          "tags": ["vegan", "refreshing"],
+          "allergens": [],
+          "spice_level": 0,
+          "pairs_with": ["starter-002", "curry-003"],
+          "available": true
+        }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "items": [
+        {
+          "id": "dessert-001",
+          "name": "Gulab Jamun (3 pcs)",
+          "description": "Soft milk-solid dumplings soaked in rose-cardamom sugar syrup",
+          "price": 6.99,
+          "image": "/images/gulab-jamun.jpg",
+          "tags": ["vegetarian", "popular", "best-seller"],
+          "allergens": ["dairy", "gluten"],
+          "spice_level": 0,
+          "pairs_with": ["drink-002"],
+          "available": true
+        },
+        {
+          "id": "dessert-002",
+          "name": "Rasmalai",
+          "description": "Delicate cottage cheese patties in sweetened saffron-cardamom milk",
+          "price": 7.99,
+          "image": "/images/rasmalai.jpg",
+          "tags": ["vegetarian", "premium"],
+          "allergens": ["dairy"],
+          "spice_level": 0,
+          "pairs_with": ["drink-002"],
+          "available": true
+        },
+        {
+          "id": "dessert-003",
+          "name": "Kulfi",
+          "description": "Dense Indian-style pistachio and cardamom ice cream",
+          "price": 5.99,
+          "image": "/images/kulfi.jpg",
+          "tags": ["vegetarian", "gluten-free"],
+          "allergens": ["dairy", "nuts"],
+          "spice_level": 0,
+          "pairs_with": ["drink-001"],
+          "available": true
+        }
+      ]
+    }
+  ],
+  "daily_specials": [
+    {
+      "item_id": "curry-003",
+      "discount_percent": 15,
+      "note": "Chef's special today!"
+    },
+    {
+      "item_id": "dessert-001",
+      "discount_percent": 10,
+      "note": "Sweet deal — 10% off!"
+    }
+  ],
+  "combos": [
+    {
+      "name": "Curry Combo",
+      "description": "Any curry + garlic naan + jeera rice",
+      "items": ["curry-001", "naan-001", "rice-001"],
+      "combo_price": 22.99,
+      "savings": 2.98
+    },
+    {
+      "name": "Biryani Feast",
+      "description": "Chicken biryani + mango lassi + gulab jamun",
+      "items": ["rice-002", "drink-001", "dessert-001"],
+      "combo_price": 27.99,
+      "savings": 2.98
+    },
+    {
+      "name": "Starter Platter",
+      "description": "Samosa + paneer tikka + fresh lime soda",
+      "items": ["starter-003", "starter-001", "drink-003"],
+      "combo_price": 21.99,
+      "savings": 2.48
+    }
+  ]
+}

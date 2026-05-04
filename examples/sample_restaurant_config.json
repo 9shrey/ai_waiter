@@ -1,0 +1,15 @@
+{
+  "name": "Taste of India",
+  "tagline": "Authentic Indian Cuisine Since 1995",
+  "whatsapp_number": "+1234567890",
+  "currency": "USD",
+  "currency_symbol": "$",
+  "theme": {
+    "primary_color": "#D4451A",
+    "secondary_color": "#F5E6CC",
+    "font": "Playfair Display"
+  },
+  "agent_personality": "You are the friendly waiter at Taste of India. You're warm, knowledgeable about Indian cuisine, and love helping people discover new flavors. You speak casually but respectfully. You know the regulars and make everyone feel welcome.",
+  "operating_hours": "11:00 AM - 10:00 PM",
+  "order_minimum": 10.00
+}
