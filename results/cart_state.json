@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "item_id": "starter-001",
+      "name": "Paneer Tikka",
+      "price": 12.99,
+      "quantity": 1,
+      "notes": "medium spice, peanut allergy noted"
+    },
+    {
+      "item_id": "starter-003",
+      "name": "Samosa (2 pcs)",
+      "price": 7.99,
+      "quantity": 2,
+      "notes": "shareable side"
+    }
+  ],
+  "total": 28.97
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "role": "guest",
+    "message": "I am vegetarian and allergic to peanuts. What is safe and filling?"
+  },
+  {
+    "role": "waiter",
+    "message": "I recommend Paneer Tikka and Samosa (2 pcs); both avoid peanuts in this sample menu.",
+    "cards": [
+      "starter-001",
+      "starter-003"
+    ]
+  },
+  {
+    "role": "guest",
+    "message": "Add one Paneer Tikka and two Samosa (2 pcs)."
+  },
+  {
+    "role": "waiter",
+    "message": "Done. I added those to your cart and kept the allergy note attached."
+  }
+]

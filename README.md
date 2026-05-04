@@ -10,6 +10,8 @@ Built as a **demo-ready MVP** to pitch restaurant owners.
 ![Tech Stack](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)
 ![Tech Stack](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 
+![AI Waiter chat and cart demo](docs/assets/chat-flow.svg)
+
 ---
 
 ## Features
@@ -54,6 +56,22 @@ Built as a **demo-ready MVP** to pitch restaurant owners.
 | Identity | Anonymous — `localStorage` visitor ID, no auth |
 | Ordering | WhatsApp deep link checkout |
 | Deployment | Docker Compose |
+
+---
+
+## Architecture
+
+See [`docs/architecture.md`](docs/architecture.md).
+
+```mermaid
+flowchart LR
+    Frontend["Next.js frontend"] --> Backend["FastAPI backend"]
+    Backend --> Gemini["Gemini function calls"]
+    Gemini --> Tools["menu/profile/cart tools"]
+    Tools --> Menu["menu.json"]
+    Tools --> Cart["live cart"]
+    Cart --> WhatsApp["WhatsApp handoff"]
+```
 
 ---
 
@@ -124,6 +142,22 @@ The app will be available at:
 - **Backend API:** [http://localhost:8000](http://localhost:8000)
 - **Health check:** [http://localhost:8000/api/health](http://localhost:8000/api/health)
 
+### Reproduce in 5 Minutes
+
+```bash
+python examples/replay_order_flow.py
+```
+
+This runs an offline conversation replay without a Gemini key and writes:
+
+| artifact | purpose |
+|---|---|
+| [`results/sample_conversation.json`](results/sample_conversation.json) | sample guest/AI conversation with menu-card IDs |
+| [`results/cart_state.json`](results/cart_state.json) | live cart update produced by the replay |
+| [`results/whatsapp_checkout.json`](results/whatsapp_checkout.json) | WhatsApp handoff message and deep link |
+| [`examples/sample_restaurant_config.json`](examples/sample_restaurant_config.json) | sample restaurant configuration |
+| [`examples/sample_menu.json`](examples/sample_menu.json) | sample menu data |
+
 ### Running without Docker
 
 **Backend:**
@@ -173,6 +207,16 @@ Each menu item supports rich metadata for intelligent recommendations:
 | `POST` | `/api/chat` | Send a message, get AI response with cards and order updates |
 | `POST` | `/api/order/whatsapp` | Generate a WhatsApp deep link for the current order |
 | `GET` | `/api/health` | Health check |
+
+---
+
+## Limitations
+
+- No payments, POS integration, table management, or kitchen display integration.
+- Visitor identity is localStorage-based and anonymous; there is no account system.
+- Allergy and dietary recommendations must be verified by restaurant staff before real-world use.
+- WhatsApp checkout is a handoff, not a confirmed order lifecycle with payment and fulfillment state.
+- Gemini output quality depends on prompt and menu data quality; fallback behavior should be tightened before production.
 
 ---
 

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="AI Waiter chat and cart demo">
+  <rect width="960" height="540" fill="#fff7ed"/>
+  <rect x="40" y="36" width="570" height="468" rx="12" fill="#ffffff" stroke="#fed7aa"/>
+  <rect x="642" y="36" width="278" height="468" rx="12" fill="#111827"/>
+  <text x="70" y="78" fill="#7c2d12" font-family="Arial" font-size="26" font-weight="700">AI Waiter chat flow</text>
+  <rect x="78" y="116" width="390" height="54" rx="18" fill="#ffedd5"/>
+  <text x="104" y="149" fill="#7c2d12" font-family="Arial" font-size="16">I am vegetarian and allergic to peanuts.</text>
+  <rect x="150" y="196" width="400" height="74" rx="18" fill="#f97316"/>
+  <text x="176" y="226" fill="#ffffff" font-family="Arial" font-size="16">Try Paneer Tikka and Garlic Naan.</text>
+  <text x="176" y="250" fill="#ffffff" font-family="Arial" font-size="14">I kept the allergy note attached.</text>
+  <rect x="78" y="304" width="202" height="120" rx="10" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="102" y="342" fill="#7c2d12" font-family="Arial" font-size="18" font-weight="700">Paneer Tikka</text>
+  <text x="102" y="372" fill="#9a3412" font-family="Arial" font-size="15">vegetarian</text>
+  <text x="102" y="400" fill="#9a3412" font-family="Arial" font-size="15">$12.99</text>
+  <rect x="318" y="304" width="202" height="120" rx="10" fill="#fff7ed" stroke="#fdba74"/>
+  <text x="342" y="342" fill="#7c2d12" font-family="Arial" font-size="18" font-weight="700">Garlic Naan</text>
+  <text x="342" y="372" fill="#9a3412" font-family="Arial" font-size="15">shareable side</text>
+  <text x="342" y="400" fill="#9a3412" font-family="Arial" font-size="15">$3.99</text>
+  <text x="674" y="78" fill="#f9fafb" font-family="Arial" font-size="24" font-weight="700">Live cart</text>
+  <text x="674" y="134" fill="#d1d5db" font-family="Arial" font-size="16">1x Paneer Tikka</text>
+  <text x="674" y="166" fill="#d1d5db" font-family="Arial" font-size="16">2x Garlic Naan</text>
+  <line x1="674" y1="214" x2="886" y2="214" stroke="#374151"/>
+  <text x="674" y="258" fill="#f9fafb" font-family="Arial" font-size="22">Total: $20.97</text>
+  <rect x="674" y="402" width="212" height="52" rx="12" fill="#22c55e"/>
+  <text x="718" y="435" fill="#052e16" font-family="Arial" font-size="18" font-weight="700">WhatsApp order</text>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "visitor_id": "demo-visitor-001",
+  "message": "New Order from Taste of India\n\n- 1x Paneer Tikka - $12.99 (medium spice, peanut allergy noted)\n- 2x Samosa (2 pcs) - $15.98 (shareable side)\n\nTotal: $28.97",
+  "total": 28.97,
+  "whatsapp_link": "https://wa.me/1234567890?text=New%20Order%20from%20Taste%20of%20India%0A%0A-%201x%20Paneer%20Tikka%20-%20%2412.99%20%28medium%20spice%2C%20peanut%20allergy%20noted%29%0A-%202x%20Samosa%20%282%20pcs%29%20-%20%2415.98%20%28shareable%20side%29%0A%0ATotal%3A%20%2428.97"
+}
